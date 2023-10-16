@@ -1,7 +1,15 @@
 "use strict";
-
 const containerCards = document.querySelector(".container-cards");
 
+// --------------------------------------------------------------------------------------
+
+async function swAPI(numPage) {
+  return fetch(`https://swapi.dev/api/people/?page=${numPage}`).then(
+    (response) => response.json()
+  );
+}
+
+// --------------------------------------------------------------------------------------
 function renderCard(img, title, description) {
   const templateCards = `  <div class="pt-4 col-lg-4 col-md-6 col-sm-12">
                             <div class="card text-center">
